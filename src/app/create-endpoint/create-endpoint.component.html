@@ -1,0 +1,86 @@
+<div class="container padding-2-perc">
+
+        <h3 class="black-bottom-gradient">Create your public API endpoint. Its absolutely free!</h3>
+        <h3 class="black-bottom-gradient">Want other team members to use this API? Its simple! Just share this endpoint.</h3>
+      
+<form>
+    <br/> 
+    <div class="row">
+        <div class="form-group  col-md-3">
+            <label for="optScheme">URL Scheme</label>
+            <div class="radio">
+                <label><input type="radio" name="optScheme" class="radio-btn-horizontal" checked>HTTP</label>
+                <label><input type="radio" name="optScheme" class="radio-btn-horizontal" style="margin-left:17px">HTTPS</label> 
+            </div>
+        </div>
+    </div>
+    <div class="row">
+
+      <div class="form-group col-md-3">
+        <label for="inputMethod">Request Method</label>
+        <select id="inputMethod" class="form-control">
+            <option value="get">GET</option>
+            <option value="post">POST</option>
+            <option value="put">PUT</option>
+            <option value="delete">DELETE</option>
+            <option value="head">HEAD</option>
+            <option value="options">OPTIONS</option>
+          </select>
+      </div>
+      <div class="form-group col-md-3">
+        <label for="inputContentType">Request Content-Type</label>
+        <select id="inputMethodReq"  class="form-control" (change)="getRequestContentType($event)">
+            <option *ngFor="let type of contentTypes" [value]="type.name" >{{type.name}}</option>
+        </select>
+      </div>
+
+    </div>
+    <div class="row">
+        <div class="form-group col-md-6">
+            <label for="inputRequestBody">Request Body</label>
+            <textarea id="inputRequestBody" class="form-control" rows="5" [value]="requestContent">    
+            </textarea>
+        </div>
+    </div>
+    <div class="row">  
+        <div class="form-group col-md-3">
+            <label for="inputMethod">Response HTTP STatus code</label>
+            <select id="inputMethod" class="form-control">
+                <option value="200">200</option>
+                <option value="201">201</option>
+                <option value="301">301</option>
+                <option value="302">302</option>
+                <option value="403">403</option>
+                <option value="500">500</option>
+              </select>
+          </div>
+          <div class="form-group col-md-3">
+            <label for="inputContentType">Response Content-Type</label>
+            <select id="inputMethodRes"  class="form-control" (change)="getResponseContentType($event)">
+                <option *ngFor="let type of contentTypes" [value]="type.name">{{type.name}}</option>
+            </select>
+          </div>
+    </div>
+    <div class="row">
+        <div class="form-group col-md-6">
+            <label for="inputResponseBody">Response Body</label>
+            <textarea id="inputResponseBody" class="form-control" rows="5" [value]="responseContent">
+                
+            </textarea>
+        </div>
+    </div>
+   <div class="row">
+       <div class="col-md-6">
+           <button (click)="generateEndpoint()" type="button" class="btn btn-dark btn-lg float-right">Create Endpoint</button>
+    </div>
+
+   </div>
+   <div class="row" style="margin-top: 1%;">
+    <div class="col-md-6">
+        <label>URL Endpoint:</label>
+    <input type="text" class="form-control" [value]="apiEndpoint"/>
+    </div>
+    </div>
+  </form>
+  </div>
+  
